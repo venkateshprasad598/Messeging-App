@@ -6,4 +6,11 @@
 
 .message__user {
   margin-left: auto;
+  color: white;
+  text-align: left;
+  background-color: violet;
+}
+.message__userCard {
+  background-color: blue !important;
+  /* The above important is very important */
 }
