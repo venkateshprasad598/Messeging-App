@@ -5,15 +5,16 @@
 .App {
   text-align: center;
 }
-.app__header {
-  font-size: 50px;
-  color: white;
-  background: linear-gradient(to right, rgb(156, 59, 253), rgb(250, 30, 103));
-  padding: 30px;
-  top: 0;
-  font-family: "Pacifico", cursive;
+
+.app__name {
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
+.app__userName {
+  margin-top: 10px;
+}
 .app__form {
   height: 70px;
   padding: 10px;

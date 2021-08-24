@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
@@ -17,8 +18,9 @@ const App = () => {
 
   useEffect(() => {
     db.collection("Messages")
-      .orderBy("timestamp", "desc")
+      .orderBy("timestamp", "asc")
       .onSnapshot((snapshot) => {
+        //Gets the unique ID provided by firebase and the data asscoiated with the unique ID
         setMessages(
           snapshot.docs.map((doc) => {
             return { id: doc.id, message: doc.data() };
@@ -28,7 +30,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const name = prompt("Enter your name");
+    const name = prompt("Please enter your name");
     setUserName(name);
   }, []);
 
@@ -39,24 +41,25 @@ const App = () => {
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
     });
-
     setInput("");
-    // if (input) {
-    //   const newInput = [...messages, { userName: userName, message: input }];
-    //   setMessages(newInput);
-    //   setInput("");
-    // }
   };
 
   return (
     <div className="App">
-      <h1 className="app__header">Speak Freely</h1>
+      <div>
+        <h1 className="app__name">Facebook Messenger Clone</h1>
+        <img
+          src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100"
+          alt="facebookmessenger"
+        />
+        {userName && <h3 className="app__userName">Welcome {userName}</h3>}
+      </div>
       <form className="app__form">
         <FormControl className="app__formControl">
           <Input
             className="app__formInput"
             type="text"
-            color="secondary"
+            color="primary"
             onChange={(e) => setInput(e.target.value)}
             value={input}
             placeholder="Enter a message"
@@ -65,7 +68,7 @@ const App = () => {
             className="app__formIcon"
             type="submit"
             disabled={!input}
-            color="secondary"
+            color="primary"
             variant="contained"
             onClick={handleClick}
           >

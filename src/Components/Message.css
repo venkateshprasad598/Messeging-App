@@ -10,9 +10,8 @@
   text-align: left !important;
 }
 .message__userCard {
-  background-color: rgb(240, 25, 90) !important;
+  background-color: rgb(20, 82, 250) !important;
   color: white !important;
-  /* The above important is very important */
 }
 .message__guestCard {
   background-color: rgb(240, 240, 240) !important;
