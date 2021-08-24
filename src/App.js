@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 import { useState, useEffect } from "react";
 import Button from "@material-ui/core/Button";
@@ -14,14 +13,17 @@ const App = () => {
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState([]);
   const [userName, setUserName] = useState("");
-  console.log(messages);
 
   useEffect(() => {
+    //Collecting data from the firebase Database
     db.collection("Messages")
-      .orderBy("timestamp", "asc")
+      //Messages - {unique Id : {userName : "", message : ""}}
+      .orderBy("timestamp", "desc")
       .onSnapshot((snapshot) => {
         //Gets the unique ID provided by firebase and the data asscoiated with the unique ID
         setMessages(
+          //id = {unique Id}
+          // data = {userName : "", message : ""}
           snapshot.docs.map((doc) => {
             return { id: doc.id, message: doc.data() };
           })
@@ -37,6 +39,7 @@ const App = () => {
   const handleClick = (e) => {
     e.preventDefault();
     db.collection("Messages").add({
+      //Adding userName, message and universal time to firebase Datatbase
       userName: userName,
       message: input,
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -47,7 +50,7 @@ const App = () => {
   return (
     <div className="App">
       <div>
-        <h1 className="app__name">Facebook Messenger Clone</h1>
+        <h1 className="app__name">Facebook Messenger App</h1>
         <img
           src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100"
           alt="facebookmessenger"
