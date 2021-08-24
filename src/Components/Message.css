@@ -7,10 +7,13 @@
 .message__user {
   margin-left: auto;
   color: white;
-  text-align: left;
-  background-color: violet;
+  text-align: left !important;
 }
 .message__userCard {
-  background-color: blue !important;
+  background-color: rgb(240, 25, 90) !important;
+  color: white !important;
   /* The above important is very important */
+}
+.message__guestCard {
+  background-color: rgb(240, 240, 240) !important;
 }
