@@ -1,5 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .App {
   text-align: center;
+}
+.app__header {
+  font-size: 50px;
+  color: white;
+  background: linear-gradient(to right, rgb(156, 59, 253), rgb(250, 30, 103));
+  padding: 30px;
+  top: 0;
+  font-family: "Pacifico", cursive;
 }
 
 .app__form {
