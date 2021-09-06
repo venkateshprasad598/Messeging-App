@@ -49,20 +49,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <div>
-        <h1 className="app__name">Facebook Messenger App</h1>
-        <img
-          src="https://facebookbrand.com/wp-content/uploads/2018/09/Header-e1538151782912.png?w=100&h=100"
-          alt="facebookmessenger"
-        />
-        {userName && <h3 className="app__userName">Welcome {userName}</h3>}
+      <div className="app__name">
+        <h1>My Chat</h1>
       </div>
+
       <form className="app__form">
         <FormControl className="app__formControl">
           <Input
             className="app__formInput"
             type="text"
-            color="primary"
+            color="secondary"
             onChange={(e) => setInput(e.target.value)}
             value={input}
             placeholder="Enter a message"
@@ -71,7 +67,7 @@ const App = () => {
             className="app__formIcon"
             type="submit"
             disabled={!input}
-            color="primary"
+            color="secondary"
             variant="contained"
             onClick={handleClick}
           >
